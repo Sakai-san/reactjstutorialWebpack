@@ -1,23 +1,3 @@
-// reducer : change a specific part of the store (here the pictures part)
-function picturesReducer(state=[], action){
-	if( action.type === "INITIALIZATION" ){
-		return action.payload;
-	}
-	else if( action.type === "ADD_PICTURE" ){
-		return [...state, action.payload]; // must be a pure function
-	}
-	else if( action.type === "REMOVE_PICTURE" ){
-		return state.filter( (pic) => action.payload !== pic.id); // must be a pure function
-	}
-	return state;
-}
-
-const store = Redux.createStore( // the store is a single JS object (state of the application)
-	Redux.combineReducers({
-		pictures : picturesReducer
-	})
-)
-
 class GridItem extends React.Component{
 	constructor(props){
 		super(props);
