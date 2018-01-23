@@ -35,30 +35,7 @@ class GridItem extends React.Component{
 	}
 }
 
-class Grid extends React.Component{
-	constructor(props){
-		super(props);
-	}
 
-	componentDidMount(){
-		fetch("http://studybyyourself.com/wp-admin/admin-ajax.php?action=get_pictures")
-	     .then(response => response.json())
-	     .then(r => {
-				 if( r.success ){
-					 store.dispatch( {type: "INITIALIZATION", payload: r.data} );
-				 }
-			 });
-	}
-
-	render(){
-		const items = store.getState().pictures.map( (el) => <GridItem key={el.id} picture={el} /> );
-		return (
-			<div className="pictures">
-				{items}
-			</div>
-		);
-	}
-}
 
 class PictureDetail extends React.Component{
 	constructor(props){
@@ -144,34 +121,8 @@ class Upload extends React.Component{
 	}
 }
 
-class Home extends React.Component{
-	render(){
-		return (
-			<div>
-				<div className="top-banner">
-					<div className="counter">Uploaded : {store.getState().pictures.length}</div>
-					<div className="uploadLink">
-						<ReactRouter.Link to="/upload">Upload a picture</ReactRouter.Link>
-					</div>
-					<br className="clear" />
-				</div>
-				<Grid />
-			</div>
-		);
-	}
-}
 
-class App extends React.Component{
-	render(){
-		return (
-			<ReactRouter.Router>
-				<ReactRouter.Route path="/" component={Home} />
-				<ReactRouter.Route path="/upload" component={Upload} />
-				<ReactRouter.Route path="/picture/:id" component={PictureDetail} />
-			</ReactRouter.Router>
-		);
-	}
-}
+
 
 const render = () => {
 	ReactDOM.render(
