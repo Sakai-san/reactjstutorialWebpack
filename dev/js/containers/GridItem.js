@@ -1,0 +1,48 @@
+import React from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {removePicture} from '../actions/pictures';
+
+class GridItem extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			removing : false
+		};
+		this.remove=this.remove.bind(this); // force the context to the current class
+	}
+
+	remove(){
+		this.setState({ removing : true });
+		fetch("http://studybyyourself.com/wp-admin/admin-ajax.php?action=picture_remove",
+			{	method: "POST",
+				headers : {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+				body: `id=${this.props.picture.id}`
+			})
+			.then(response => response.json())
+			.then(r => {
+				this.setState({ removing : false });
+				if( r.success ){
+					this.props.removePicture( this.props.picture.id );
+				}
+			});
+	}
+
+	render(){
+		return (
+			<div className={"picture " + ( this.state.removing ? "opaque" : "" )}>
+				<span className="picture-remove" onClick={this.remove}>X</span>
+
+				{/*<ReactRouter.Link to={`/picture/${this.props.picture.id}`}> */}
+					<img src={this.props.picture.url} />
+				{/*</ReactRouter.Link> */}
+			</div>
+		);
+	}
+}
+
+function matchDispatchToProps(dispatch){
+	return bindActionCreators( {removePicture: removePicture}, dispatch);
+}
+
+export default connect(matchDispatchToProps)(GridItem);

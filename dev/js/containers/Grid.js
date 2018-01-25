@@ -1,5 +1,8 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import GridItem from 'GridItem';
+import {populatePictures} from '../actions/pictures';
 
 
 class Grid extends React.Component{
@@ -11,14 +14,14 @@ class Grid extends React.Component{
 		fetch("http://studybyyourself.com/wp-admin/admin-ajax.php?action=get_pictures")
 	     .then(response => response.json())
 	     .then(r => {
-				 if( r.success ){
-					 store.dispatch( {type: "INITIALIZATION", payload: r.data} );
-				 }
+				if( r.success ){
+					this.props.populatePictures( r.data );
+				}
 			 });
 	}
 
 	render(){
-		const items = store.getState().pictures.map( (el) => <GridItem key={el.id} picture={el} /> );
+		const items = this.props.pictures.map( (el) => <GridItem key={el.id} picture={el} /> );
 		return (
 			<div className="pictures">
 				{items}
@@ -29,7 +32,11 @@ class Grid extends React.Component{
 
 // when state change, component ll be rerendered. Become component's own prop
 function mapStateToProps(state){
-
+	return { pictures : state.pictures };
 }
 
-export default connect(mapStateToProps)(Grid);
+function matchDispatchToProps(dispatch){
+	return bindActionCreators( {populatePictures: populatePictures}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Grid);

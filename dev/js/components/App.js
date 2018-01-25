@@ -5,6 +5,7 @@ import Home from '../containers/Home';
 import Upload from '../containers/Upload';
 import PictureDetail from '../containers/PictureDetail';
 */
+require('../../scss/styles.scss');
 
 class App extends React.Component{
 

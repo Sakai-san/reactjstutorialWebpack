@@ -1,0 +1,163 @@
+
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+}
+
+a{
+	text-decoration: none;
+}
+
+.pictures{
+  padding: 0;
+  margin: 0;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+}
+
+.picture{
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.picture:hover .picture-remove{
+  display: block;
+}
+
+.opaque{
+  opacity: 0.3;
+}
+
+.picture-remove{
+  position: absolute;
+  top: -4px;
+  right:0px;
+  font-size: 35px;
+  color: #ff005d;
+  display: none;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.top-banner{
+  padding: 10px;
+  background-color: rgb(63,81,181);
+  font-size: 30px;
+  line-height: 36px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.87);
+}
+
+.counter{
+  float: left;
+}
+
+.uploadLink{
+  float: right;
+}
+
+.clear{
+  clear:both;
+}
+
+.uploadLink a, .link a{
+  color: rgba(255,255,255,0.87);
+}
+
+
+/*
+  Upload route
+*/
+
+.buttons-panel{
+  margin: 30px;
+}
+
+.btn{
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.spinner {
+  border: 5px solid rgb(63,81,181);
+  border-radius: 30px;
+  height: 30px;
+  left: 266px;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  position: absolute;
+  top: 97px;
+  width: 30px;
+
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(.1);
+    opacity: 0.0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.hidden{
+  display: none;
+}
+
+/*
+  Detail picture route
+*/
+
+table{
+  width: 100%;
+  padding: 20px;
+}
+
+.left{
+  text-align: left;
+}
+
+.right{
+  text-align: right;
+}
+
+.picture-wrapper{
+  margin-top: 80px;
+  text-align: center;
+}
+
+.picture-detail{
+  display: inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.picture-title{
+  text-transform: uppercase;
+  margin: 20px;
+  text-align: left;
+  font-size: 19px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}

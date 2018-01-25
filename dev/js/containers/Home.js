@@ -21,7 +21,7 @@ class Home extends React.Component{
 
 // when state change, component ll be rerendered. Become component's own prop
 function mapStateToProps(state){
-    return { pictures : state.pictures }
+    return { pictures : state.pictures };
 }
 
 export default connect(mapStateToProps)(Home);
