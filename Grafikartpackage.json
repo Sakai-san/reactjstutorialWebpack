@@ -1,0 +1,26 @@
+{
+  "name": "reactjstutorialWebpack",
+  "version": "1.0.0",
+  "description": "## Project initialization `> npm init -y` `> npm i -D webpack webpack-dev-server cross-env`",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-end NODE_ENV=development webpack-dev-server --hot",
+    "build" : "cross-env NODE_ENV=production webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sakai-san/reactjstutorialWebpack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sakai-san/reactjstutorialWebpack/issues"
+  },
+  "homepage": "https://github.com/Sakai-san/reactjstutorialWebpack#readme",
+  "devDependencies": {
+    "cross-env": "^5.1.3",
+    "webpack": "^3.10.0",
+    "webpack-server": "^0.1.2"
+  }
+}
