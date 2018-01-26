@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Grid from 'Grid';
+import Grid from '../containers/Grid';
 
 class Home extends React.Component{
 	render(){

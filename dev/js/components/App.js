@@ -14,16 +14,6 @@ class App extends React.Component{
             <Home />
         );
     }
-    {/*
-	render(){
-		return (
-			<ReactRouter.Router>
-				<ReactRouter.Route path="/" component={Home} />
-				<ReactRouter.Route path="/upload" component={Upload} />
-				<ReactRouter.Route path="/picture/:id" component={PictureDetail} />
-			</ReactRouter.Router>
-		);
-    */}
 }
 
 export default App;
