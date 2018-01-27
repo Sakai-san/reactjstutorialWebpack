@@ -59,11 +59,11 @@ class Upload extends React.Component{
 }
 
 function mapStateToProps(state){
-	return { pictures : state.pictures };
+	return { appState : state };
 }
 
 function matchDispatchToProps(dispatch){
 	return bindActionCreators( {addPicture: addPicture}, dispatch );
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Upload);
+export default connect(mapStateToProps, matchDispatchToProps)(Upload);;

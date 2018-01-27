@@ -40,7 +40,7 @@ class GridItem extends React.Component{
 }
 
 function mapStateToProps(state){
-    return { pictures : state.pictures };
+    return { appState : state };
 }
 
 function matchDispatchToProps(dispatch){
