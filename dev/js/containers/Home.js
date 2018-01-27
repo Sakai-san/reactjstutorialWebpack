@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import Grid from '../containers/Grid';
 
 class Home extends React.Component{
@@ -9,7 +10,7 @@ class Home extends React.Component{
 				<div className="top-banner">
 					<div className="counter">Uploaded : {this.props.pictures.length}</div>
 					<div className="uploadLink">
-						{/*<ReactRouter.Link to="/upload">Upload a picture</ReactRouter.Link>*/}
+						<Link to="/upload">Upload a picture</Link>
 					</div>
 					<br className="clear" />
 				</div>

@@ -1,15 +1,14 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {Link} from  'react-router-dom';
 import {removePicture} from '../actions/pictures';
 
 class GridItem extends React.Component{
 	constructor(props){
 		super(props);
-		this.state = {
-			removing : false
-		};
-		this.remove=this.remove.bind(this); // force the context to the current class
+		this.state = { removing : false };
+		this.remove = this.remove.bind(this); // force the context to the current class
 	}
 
 	remove(){
@@ -32,10 +31,9 @@ class GridItem extends React.Component{
 		return (
 			<div className={"picture " + ( this.state.removing ? "opaque" : "" )}>
 				<span className="picture-remove" onClick={this.remove}>X</span>
-
-				{/*<ReactRouter.Link to={`/picture/${this.props.picture.id}`}> */}
+				<Link to={`/picture/${this.props.picture.id}`}>
 					<img src={this.props.picture.url} />
-				{/*</ReactRouter.Link> */}
+				</Link>
 			</div>
 		);
 	}

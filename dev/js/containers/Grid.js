@@ -11,13 +11,15 @@ class Grid extends React.Component{
 	}
 
 	componentDidMount(){
-		fetch("http://studybyyourself.com/wp-admin/admin-ajax.php?action=get_pictures")
-	     .then(response => response.json())
-	     .then(r => {
-				if( r.success ){
-					this.props.populatePictures( r.data );
-				}
-			 });
+		if( this.props.pictures.length === 0) {
+			fetch("http://studybyyourself.com/wp-admin/admin-ajax.php?action=get_pictures")
+				.then(response => response.json())
+				.then(r => {
+						if( r.success ){
+							this.props.populatePictures( r.data );
+						}
+				});
+		}
 	}
 
 	render(){
