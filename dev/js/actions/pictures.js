@@ -11,3 +11,10 @@ export const removePicture = (id) => {
         payload: id
     };
 };
+
+export const addPicture = (picture) => {
+    return {
+        type: "ADD_PICTURE",
+        payload: picture
+    };
+};

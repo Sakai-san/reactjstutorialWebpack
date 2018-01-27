@@ -1,6 +1,6 @@
 import React from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
 import {populatePictures} from '../actions/pictures';
 
@@ -37,14 +37,16 @@ class PictureDetail extends React.Component{
 							<img src={picture[0].url} />
 							<h2 className="picture-title">{picture[0].title.replace(/[-_]/g,' ')}</h2>
 							<table>
-								<tr>
-									<td className="left bold">Uploaded:</td>
-									<td className="right">{picture[0].dateFormatted}</td>
-								</tr>
-								<tr>
-									<td className="left bold">Size:</td>
-									<td className="right">{picture[0].filesizeHumanReadable}</td>
-								</tr>
+								<tbody>
+									<tr>
+										<td className="left bold">Uploaded:</td>
+										<td className="right">{picture[0].dateFormatted}</td>
+									</tr>
+									<tr>
+										<td className="left bold">Size:</td>
+										<td className="right">{picture[0].filesizeHumanReadable}</td>
+									</tr>
+								</tbody>
 							</table>
 						</div>
 					</div>

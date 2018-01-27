@@ -1,9 +1,8 @@
 import React from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import GridItem from './GridItem';
 import {populatePictures} from '../actions/pictures';
-
 
 class Grid extends React.Component{
 	constructor(props){

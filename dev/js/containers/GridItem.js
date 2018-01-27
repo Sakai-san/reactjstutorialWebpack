@@ -1,6 +1,6 @@
 import React from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {Link} from  'react-router-dom';
 import {removePicture} from '../actions/pictures';
 
@@ -39,8 +39,12 @@ class GridItem extends React.Component{
 	}
 }
 
+function mapStateToProps(state){
+    return { pictures : state.pictures };
+}
+
 function matchDispatchToProps(dispatch){
 	return bindActionCreators( {removePicture: removePicture}, dispatch);
 }
 
-export default connect(matchDispatchToProps)(GridItem);
+export default connect(mapStateToProps, matchDispatchToProps)(GridItem);

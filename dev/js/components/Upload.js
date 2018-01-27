@@ -1,5 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
+import { addPicture } from '../actions/pictures';
 
 class Upload extends React.Component{
 	constructor(props){
@@ -10,23 +13,25 @@ class Upload extends React.Component{
 		};
 	}
 
-  updateData( event ){
+	updateData( event ){
 		this.setState({ imageData: event.target.files[0] });
-  }
+	}
 
 	upload(){
 		this.setState({ loading : true });
-
 		let fd = new FormData();
 		fd.append( 'file', this.state.imageData );
 		fetch("http://studybyyourself.com/wp-admin/admin-ajax.php?action=picture_upload",
 			{	method: "POST",
 				body: fd
 			})
-	     .then(response => response.json())
-	     .then(r => {
-				 this.setState({ loading : false });
-			 });
+			.then(response => response.json())
+			.then(r => {
+					this.setState({ loading : false });
+					if( r.success ){
+						this.props.addPicture(r.data);
+					}
+				});
 	}
 
 	render(){
@@ -53,4 +58,12 @@ class Upload extends React.Component{
 	}
 }
 
-export default Upload;
+function mapStateToProps(state){
+	return { pictures : state.pictures };
+}
+
+function matchDispatchToProps(dispatch){
+	return bindActionCreators( {addPicture: addPicture}, dispatch );
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Upload);
