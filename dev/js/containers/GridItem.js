@@ -39,12 +39,8 @@ class GridItem extends React.Component{
 	}
 }
 
-function mapStateToProps(state){
-    return { appState : state };
-}
-
 function matchDispatchToProps(dispatch){
 	return bindActionCreators( {removePicture: removePicture}, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(GridItem);
+export default connect(null, matchDispatchToProps)(GridItem);
