@@ -62,4 +62,4 @@ function matchDispatchToProps(dispatch){
 	return bindActionCreators( {addPicture: addPicture}, dispatch );
 }
 
-export default connect(null, matchDispatchToProps)(Upload);;
+export default connect(null, matchDispatchToProps)(Upload);
